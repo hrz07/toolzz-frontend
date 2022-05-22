@@ -7,7 +7,7 @@ const MyProfile = () => {
     const [user] = useAuthState(auth);
 
     const {displayName,email,photoURL } = user;
-    console.log(user)
+
     return (
         <div className="flex h-full justify-center items-center">
             <div class="card w-96 bg-base-100 shadow-xl">

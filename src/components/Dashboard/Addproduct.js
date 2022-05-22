@@ -18,6 +18,7 @@ const Addproduct = () => {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(data),
         })
@@ -37,8 +38,8 @@ const Addproduct = () => {
             <form action="" onSubmit={submitHandler} className='form-control w-[420px] items-center gap-2 shadow-xl p-5 rounded-lg'>
             <h1 className='text-center mx-auto text-2xl font-bold mb-5'>Add Product</h1>
                 <input type="text" name="name" placeholder="name" className="input input-bordered w-full max-w-xs" />
-                <input type="text" name="price" placeholder="price" className="input input-bordered w-full max-w-xs" />
-                <input type="text" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
+                <input type="number" name="price" placeholder="price" className="input input-bordered w-full max-w-xs" />
+                <input type="number" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
                 <input type="text" name="image"  placeholder="image" className="input input-bordered w-full max-w-xs" />
                 <input type="text" name="description" placeholder="description" className="input input-bordered w-full max-w-xs" />
                 <input type="submit" value="ADD PRODUCT" className="input btn btn-primary input-bordered w-full max-w-xs" />
