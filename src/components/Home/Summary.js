@@ -26,7 +26,7 @@ const Summary = () => {
     return (
         <div className='flex flex-wrap items-center gap-10 my-10 justify-center  '>
             {
-                summary.map((item,index)=>  <div key={index} className='flex flex-col justify-center items-center text-center w-[150px] h-[150px] boxShadow rounded-xl text-neutral' >
+                summary.map((item,index)=>  <div key={index} className='flex flex-col justify-center items-center text-center w-[200px] h-[150px] boxShadow rounded-xl text-neutral' >
                     < item.icon size={45} />
                     <h1 className='text-neutral font-bold'>{ item.text}</h1>
                     </div>)
