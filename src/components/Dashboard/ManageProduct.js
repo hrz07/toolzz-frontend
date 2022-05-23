@@ -11,9 +11,20 @@ const ManageProduct = () => {
             .then(data => setProduct(data))
     }, [])
 
-    console.log(product);
 
-
+    const deleteItem = (id) => {
+        const url = `http://localhost:5000/product/${id}`
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    const restItem = product.filter(item => item._id !== id)
+                    setProduct(restItem);
+                }
+            })
+    }
 
 
     return (
@@ -35,7 +46,7 @@ const ManageProduct = () => {
 
                         {
                             product.map((item, index) => {
-                                return <tr>
+                                return <tr key={item._id}>
                                     <th>{index+1}</th>
                                     <td>
                                         <div className="avatar">
@@ -48,7 +59,7 @@ const ManageProduct = () => {
                                     <td>{ item.price}</td>
                                     <td>{ item.quantity}</td>
                                     <td>
-                                        <button class="btn bg-rose-700 border-0 text-zinc-100 btn-xs">Delete</button>
+                                        <button onClick={()=> deleteItem(item._id)} className="btn bg-rose-700 border-0 text-zinc-100 btn-xs">Delete</button>
                                     </td>
                                 </tr>
                             })

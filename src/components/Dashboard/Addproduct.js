@@ -36,7 +36,7 @@ const Addproduct = () => {
         <div className='flex h-[70vh] flex-col mt-20 items-center'>
             
             <form action="" onSubmit={submitHandler} className='form-control w-[420px] items-center gap-2 boxShadow p-5 rounded-lg'>
-            <h1 className='text-center mx-auto text-2xl font-bold mb-5'>Add Product</h1>
+            <h1 className='text-center mx-auto text-2xl font-bold text-primary mb-5'>Add Product</h1>
                 <input type="text" name="name" placeholder="name" className="input input-bordered w-full max-w-xs" />
                 <input type="number" name="price" placeholder="price" className="input input-bordered w-full max-w-xs" />
                 <input type="number" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
