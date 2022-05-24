@@ -10,7 +10,7 @@ const Products = () => {
             .then(data => setProduct(data))
     }, [])
 
-    console.log(product);
+    
 
     return (
         <div className='text-center itms-center my-20'>

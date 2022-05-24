@@ -1,14 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
+import AddAdmin from './components/Dashboard/AddAdmin';
 import Addproduct from './components/Dashboard/Addproduct';
 import Dashboard from './components/Dashboard/Dashboard';
 import ManageProduct from './components/Dashboard/ManageProduct';
 import MyProfile from './components/Dashboard/MyProfile';
 import Review from './components/Dashboard/Review';
+import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import RequireAdmin from './components/Login/RequireAdmin';
 import RequireAuth from './components/Login/RequireAuth';
 import SignUp from './components/Login/SignUp';
 import Navbar from './components/Navbar/Navbar';
+import Notfound from './components/Notfound/Notfound';
 
 function App() {
   return (
@@ -21,10 +25,13 @@ function App() {
           <Route path='addproduct' element={ <Addproduct></Addproduct> } ></Route>
           <Route path='manageproduct' element={ <ManageProduct></ManageProduct> } ></Route>
           <Route path='addreview' element={ <Review></Review> } ></Route>
+          <Route path='addadmin' element={  <RequireAdmin> <AddAdmin></AddAdmin> </RequireAdmin>   } ></Route>
         </Route>
         <Route path='/login' element={ <Login></Login> }></Route>
         <Route path='/signup' element={ <SignUp></SignUp> }></Route>
+        <Route path='*' element={ <Notfound></Notfound> }></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
