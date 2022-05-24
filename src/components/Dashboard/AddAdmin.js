@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAdmin from '../hooks/useAdmin';
 
 const AddAdmin = () => {
 
     const [user, setUser] = useState([])
+    const [admin] = useAdmin(user)
     useEffect(() => {
         fetch('http://localhost:5000/user')
             .then(res => res.json())
@@ -55,7 +57,7 @@ const AddAdmin = () => {
                                     <th>{ index+1}</th>
                                     <td>{ u.email}</td>
                                     <td>
-                                     <button onClick={()=>makeAdmin(u.email)} class="btn btn-success btn-xs">Admin</button>
+                                     <button onClick={()=>makeAdmin(u.email)} disabled={u.role === 'admin'? true : false} class="btn btn-success btn-xs">Admin</button>
                                     </td>
                                 </tr>
                             })

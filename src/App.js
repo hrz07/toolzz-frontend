@@ -13,6 +13,8 @@ import RequireAuth from './components/Login/RequireAuth';
 import SignUp from './components/Login/SignUp';
 import Navbar from './components/Navbar/Navbar';
 import Notfound from './components/Notfound/Notfound';
+import Portfolio from './components/Portfolio/Portfolio';
+import Purchage from './components/Purchage/Purchage';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path='addadmin' element={  <RequireAdmin> <AddAdmin></AddAdmin> </RequireAdmin>   } ></Route>
         </Route>
         <Route path='/login' element={ <Login></Login> }></Route>
+        <Route path='/portfolio' element={ <Portfolio></Portfolio> }></Route>
+        <Route path='/purchase/:id' element={ <RequireAuth> <Purchage></Purchage> </RequireAuth> }></Route>
         <Route path='/signup' element={ <SignUp></SignUp> }></Route>
         <Route path='*' element={ <Notfound></Notfound> }></Route>
       </Routes>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
 
@@ -28,7 +29,7 @@ const Products = () => {
                                 <p className='text-left m-0 p-0 text-sm font-bold'>Minimum order 100</p>
                                 <p className='text-sm text-justify text-neutral'>{item.description} </p>
                                 <div class="card-actions flex items-center justify-center bottom-2 mx-auto absolute">
-                                    <button class="btn btn-primary mx-auto w-[260px]">Buy Now</button>
+                                    <Link to={`/purchase/${item._id}`} class="btn btn-primary mx-auto w-[260px]">Buy Now</Link>
                                 </div>
                             </div>
                         </div>

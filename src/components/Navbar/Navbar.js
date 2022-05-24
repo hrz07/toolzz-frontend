@@ -26,6 +26,7 @@ const Navbar = () => {
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-1 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to="/" >Home</NavLink></li>
                             <li><NavLink to="/blogs" >Blogs</NavLink></li>
+                            <li><NavLink to="/portfolio" >Portfolio</NavLink></li>
                             <li><NavLink to="/dashboard" >Dashboard</NavLink></li>
                             <li> {user ? <button className="btn btn-ghost" onClick={logout} >Logout</button> : <NavLink to="/login">Login</NavLink>}</li>
 
@@ -37,6 +38,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal p-0">
                         <li><NavLink className='mx-4' to="/" >Home</NavLink></li>
                         <li><NavLink className='mx-4' to="/blogs" >Blogs</NavLink></li>
+                        <li><NavLink className='mx-4' to="/portfolio" >Portfolio</NavLink></li>
                         <li><NavLink className='mx-4' to="/dashboard" >Dashboard</NavLink></li>
                         <li> {user ? <button className="btn btn-ghost" onClick={logout} >Logout</button> : <NavLink to="/login">Login</NavLink>}</li>
                     </ul>
