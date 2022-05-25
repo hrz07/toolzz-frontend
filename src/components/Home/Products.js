@@ -26,7 +26,7 @@ const Products = () => {
                                 <h2 class="card-title">{item.name }</h2>
                                 <p className='card-title text-red-600 font-bold p-0 m-0'> $ {item.price} </p>
                                 <p className='text-left m-0 p-0 text-sm font-bold'>Stock : { item.quantity}</p>
-                                <p className='text-left m-0 p-0 text-sm font-bold'>Minimum order 100</p>
+                                <p className='text-left m-0 p-0 text-sm font-bold'>Minimum order 10</p>
                                 <p className='text-sm text-justify text-neutral'>{item.description} </p>
                                 <div class="card-actions flex items-center justify-center bottom-2 mx-auto absolute">
                                     <Link to={`/purchase/${item._id}`} class="btn btn-primary mx-auto w-[260px]">Buy Now</Link>
