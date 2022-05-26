@@ -10,14 +10,15 @@ const Purchage = () => {
     const [user] = useAuthState(auth);
 
     const [productData, setProductData] = useState([])
+    const [updateQuantity,setUpdateQuantity] = useState('')
     useEffect(() => {
         fetch(`http://localhost:5000/product/${id}`)
             .then(res => res.json())
             .then(data => setProductData(data))
-    }, [id])
+    }, [id,updateQuantity])
 
     const email = user.email
-    const quantity = productData.quantity * 1
+    const quantity1 = productData.quantity * 1
 
     const orderHandler = (e) => {
         e.preventDefault()
@@ -27,9 +28,11 @@ const Purchage = () => {
         const productName = productData?.name;
         const data = {email, productName, inputQuantity, address,phone}
 
-        if (inputQuantity < 10 || inputQuantity > quantity) {
-            toast.error(`You can not order less than 10 and Greater-than ${quantity}`)
+        if (inputQuantity < 10 || inputQuantity > quantity1) {
+            toast.error(`You can not order less than 10 and Greater-than ${quantity1}`)
         } else {
+
+            const quantity = quantity1 - inputQuantity*1
 
             fetch('http://localhost:5000/order', {
                 method: 'POST', // or 'PUT'
@@ -40,12 +43,23 @@ const Purchage = () => {
                 body: JSON.stringify(data),
             })
                 .then(res => res.json())
-                .then(data => alert('successfuly data added'))
+                .then(data => toast('successfuly data added'))
 
             e.target.reset();
 
 
-            console.log(data);
+            
+            fetch(`http://localhost:5000/product/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ quantity }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => setUpdateQuantity(data) );
+
+
         }
 
     }
