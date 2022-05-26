@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const ShowReview = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://mysterious-wildwood-71098.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -22,7 +22,7 @@ const ShowReview = () => {
                             <div className="card-body">
                                 <h2 className="card-title">{ item.name}</h2>
                                 <p>{ item.review}</p>
-                                <p>⭐⭐⭐⭐⭐</p>
+                                <p>Rating: {item.rating }</p>
                             </div>
                         </div>
                     })

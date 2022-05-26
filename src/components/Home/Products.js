@@ -6,12 +6,13 @@ const Products = () => {
     const [product, setProduct] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://mysterious-wildwood-71098.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
 
     
+    const reverseArray = [...product].reverse()
 
     return (
         <div className='text-center itms-center my-20'>
@@ -19,7 +20,7 @@ const Products = () => {
             <h1 className='text-4xl font-bold m-0'>  - NEW ARRIVALS - </h1>
             <div className='flex flex-wrap items-center justify-center gap-5 mt-10'>
                 {
-                    product.slice(0, 4).map((item, index) => {
+                    reverseArray.slice(0, 4).map((item, index) => {
                         return <div key={item._id} class="card w-[300px] h-[480px] bg-base-100 boxShadow relative">
                             <figure className='h-[250px]'><img src={item.img} alt="product_image" /></figure>
                             <div class=" p-5">

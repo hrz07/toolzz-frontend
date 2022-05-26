@@ -10,7 +10,7 @@ const Myorders = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${email}`)
+        fetch(`https://mysterious-wildwood-71098.herokuapp.com/order/${email}`)
             .then(res => res.json())
             .then(data => setMyOrderList(data))
     }, [])

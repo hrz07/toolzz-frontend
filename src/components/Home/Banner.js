@@ -3,7 +3,7 @@ import bannerImg from '../../images/bannar.webp'
 import banner from '../../images/banner.jpeg'
 const Banner = () => {
     return (
-        <div className="hero min-h-screen bg-indigo-100  bg-center bg-cover bg-no-repeat object-cover">
+        <div className="hero min-h-[75vh] bg-indigo-100  bg-center bg-cover bg-no-repeat object-cover">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={bannerImg} className="max-w-sm rounded-lg" alt='bannerImage' />
                 <div className='w-1/2'>

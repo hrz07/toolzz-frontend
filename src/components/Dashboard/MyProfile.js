@@ -13,7 +13,7 @@ const MyProfile = () => {
     const [myData, setMydata] = useState([])
     
    
-    const { data, isLoading,refetch } = useQuery('user', () => fetch(`http://localhost:5000/userinfo/${email}`, {
+    const { data, isLoading,refetch } = useQuery('user', () => fetch(`https://mysterious-wildwood-71098.herokuapp.com/userinfo/${email}`, {
         method: 'GET',
       
     }).then(res => res.json()))
@@ -34,7 +34,7 @@ const MyProfile = () => {
                     <img src={user?.photoURL || userImg} alt="img" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Name: { data?.name}</h2>
+                    <h2 className="card-title">Name: { data?.name ? data.name : user.displayName}</h2>
                     <p>Email: { data?.email}</p>
                     <p>Phone: { data?.phone ? data.phone : 'Phone number not available' }</p>
                     <p>Address: { data?.address ? data.address : 'Address not available' }</p>

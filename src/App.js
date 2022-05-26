@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import AllProducts from './components/AllProducts/AllProducts';
 import Blogs from './components/Blogs/Blogs';
 import AddAdmin from './components/Dashboard/AddAdmin';
 import Addproduct from './components/Dashboard/Addproduct';
@@ -39,6 +40,7 @@ function App() {
         <Route path='/purchase/:id' element={ <RequireAuth> <Purchage></Purchage> </RequireAuth> }></Route>
         <Route path='/signup' element={ <SignUp></SignUp> }></Route>
         <Route path='/blogs' element={ <Blogs></Blogs> }></Route>
+        <Route path='/allproducts' element={ <AllProducts></AllProducts> }></Route>
         <Route path='*' element={ <Notfound></Notfound> }></Route>
       </Routes>
       <Footer></Footer>

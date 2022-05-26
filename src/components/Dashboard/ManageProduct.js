@@ -6,14 +6,14 @@ const ManageProduct = () => {
     const [product, setProduct] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://mysterious-wildwood-71098.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
 
 
     const deleteItem = (id) => {
-        const url = `http://localhost:5000/product/${id}`
+        const url = `https://mysterious-wildwood-71098.herokuapp.com/product/${id}`
         fetch(url, {
             method: 'DELETE',
         })

@@ -5,7 +5,7 @@ const ManageOrders = () => {
 
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/order')
+        fetch('https://mysterious-wildwood-71098.herokuapp.com/order')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])

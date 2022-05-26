@@ -1,6 +1,8 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -16,21 +18,31 @@ const Review = () => {
     const handleReview = (e) => {
         e.preventDefault();
 
-
+        let rating = e.target.rating.value;
         const review = e.target.review.value
-        const data = { name, email, review,img }
+
+        if (rating > 5 || rating < 1) {
+            toast.error("Rating can not less than 0 or bigger than 5")
+        } else {
+            
+            const data = { name, email, review,img,rating }
+
+            fetch('https://mysterious-wildwood-71098.herokuapp.com/review', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(data),
+            })
+                .then(res => res.json())
+                .then(data => alert('successfuly data added'))
+        }
 
 
-        fetch('http://localhost:5000/review', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: JSON.stringify(data),
-        })
-            .then(res => res.json())
-            .then(data => alert('successfuly data added'))
+
+
+      
 
         e.target.reset();
     }
@@ -56,10 +68,12 @@ const Review = () => {
                     </div>
                     <input type="text" value={email} disabled className="input input-bordered w-full max-w-xs" />
                     <input type="text" value={name} disabled className="input input-bordered w-full max-w-xs" />
-                    <input type="text" placeholder="Type here" name="review" className="input input-bordered w-full max-w-xs" />
+                    <input type="text" placeholder="review" name="review" className="input input-bordered w-full max-w-xs" />
+                    <input type="number" placeholder="rating" name="rating" className="input input-bordered w-full max-w-xs" />
                     <input type="submit" value='Review Submit' className="input btn btn-primary w-full max-w-xs" />
                 </form>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

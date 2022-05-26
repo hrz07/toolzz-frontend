@@ -14,7 +14,7 @@ const Addproduct = () => {
 
         const data = { name, price, img, quantity, description }
         
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://mysterious-wildwood-71098.herokuapp.com/addproduct', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

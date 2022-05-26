@@ -18,7 +18,7 @@ const UpdateInfoModal = ({refetch}) => {
         
 
 
-        fetch(`http://localhost:5000/updateinfo/${email}`, {
+        fetch(`https://mysterious-wildwood-71098.herokuapp.com/updateinfo/${email}`, {
                 method: 'PUT',
                 body: JSON.stringify({ data }),
                 headers: {

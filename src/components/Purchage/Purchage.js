@@ -12,7 +12,7 @@ const Purchage = () => {
     const [productData, setProductData] = useState([])
     const [updateQuantity,setUpdateQuantity] = useState('')
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://mysterious-wildwood-71098.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProductData(data))
     }, [id,updateQuantity])
@@ -34,7 +34,7 @@ const Purchage = () => {
 
             const quantity = quantity1 - inputQuantity*1
 
-            fetch('http://localhost:5000/order', {
+            fetch('https://mysterious-wildwood-71098.herokuapp.com/order', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const Purchage = () => {
 
 
             
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://mysterious-wildwood-71098.herokuapp.com/product/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({ quantity }),
                 headers: {
