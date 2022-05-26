@@ -25,6 +25,8 @@ const Myorders = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Quantity</th>
+                            <th>Payment</th>
+                            <th>Cancel</th>
                             
                         </tr>
                     </thead>
@@ -36,6 +38,9 @@ const Myorders = () => {
                                     <th>{ index+1}</th>
                                     <td>{ item.productName}</td>
                                     <td>{ item.inputQuantity}</td>
+                                    <td> <button className='btn btn-xs btn-success' >Pay</button> </td>
+                                    <td> <button className='btn btn-xs btn-cancel' >Cancel</button> </td>
+                                    
                                 
                             </tr>
                             })
